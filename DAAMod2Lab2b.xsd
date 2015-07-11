@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://tempuri.org/XMLSchema.xsd"
+    elementFormDefault="qualified"
+    xmlns="http://tempuri.org/XMLSchema.xsd"
+    xmlns:mstns="http://tempuri.org/XMLSchema.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:annotation>
+    <xs:documentation>
+      This schema was created by David Anglin
+    </xs:documentation>
+  </xs:annotation>
+
+  <xs:element name="ancient_wonders">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="wonder" type="wonderType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+
+  <xs:complexType name="wonderType">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string"/>
+      <xs:element name="location" type="xs:string"/>
+      <xs:element name="height" type="xs:integer"/>
+      <xs:element name="history" type="historyType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="historyType">
+    <xs:sequence>
+      <xs:element name="year_built" type="yearType"/>
+      <xs:element name="year_destroyed" type="yearType" minOccurs="0"/>
+      <xs:element name="how_destroyed" type="destrType" minOccurs="0"/>
+      <xs:element name="story" type="storyType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="story" mixed="true">
+    <xs:sequence>
+      <xs:element name="para" maxOccurs="unbounded"><xs:complexType/></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="yearType">
+    <xs:simpleContent>
+      <xs:extension base="xs:positiveInteger">
+        <xs:attribute name="era" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  <!--<xs:annotation>
+    <xs:documentation>
+      This schema was created by David Anglin
+    </xs:documentation>
+  </xs:annotation>
+
+  <xs:complexType name="story" mixed="true">
+    <xs:sequence>    
+      <xs:element name="para" maxOccurs="unbounded">
+     <xs:complexType/>
+    </xs:element>
+   </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="yearType">
+    <xs:simpleContent>
+     <xs:extension base="xs:positiveInteger">
+      <xs:attribute name="era" type="xs:string"/>
+     </xs:extension> 
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:element name="wonder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="name"
+                    type="xs:string"/>
+        <xs:element name="location"
+                    type="xs:string"/>
+        <xs:element name="height"
+                    type="xs:decimal"/>
+        <xs:element name="history">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="year_built"
+                    type="year_type"/>
+              <xs:element name="year_destroyed"
+                      type="year_type"/>
+              <xs:element name="how_destroyed"
+                      type="xs:string" default="fire"/>
+              <xs:element name="story"
+                          type="story_type"/>
+              </xs:sequence>
+          </xs:complexType>
+        </xs:element>               
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element> -->
+</xs:schema>

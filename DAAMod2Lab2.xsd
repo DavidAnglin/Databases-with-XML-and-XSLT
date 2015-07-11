@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://tempuri.org/XMLSchema.xsd"
+    elementFormDefault="qualified"
+    xmlns="http://tempuri.org/XMLSchema.xsd"
+    xmlns:mstns="http://tempuri.org/XMLSchema.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:annotation>
+    <xs:documentation>
+      This schema was created by David Anglin
+    </xs:documentation>
+  </xs:annotation>
+
+  <xs:simpleType name="story_type">
+    <xs:restriction base="xs:string">
+      <xs:length value="1024"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="year_type">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="5000"/>      
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="wonder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="name"
+                    type="xs:string"/>
+        <xs:element name="location"
+                    type="xs:string"/>
+        <xs:element name="height"
+                    type="xs:decimal"/>
+        <xs:element name="history">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="year_built"
+                    type="year_type"/>
+              <xs:element name="year_destroyed"
+                      type="year_type"/>
+              <xs:element name="how_destroyed"
+                      type="xs:string" default="fire"/>
+              <xs:element name="story"
+                          type="story_type"/>
+              </xs:sequence>
+          </xs:complexType>
+        </xs:element>               
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
